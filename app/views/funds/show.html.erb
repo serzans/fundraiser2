@@ -1,0 +1,265 @@
+<div class='container'>
+<h2>Informações gerais</h2>
+
+<!-- Opportunity -->
+
+	<% if !(@fund.opportunity_name.blank?) %>
+		<strong>Nome de Oportunidade:</strong> <p><%= @fund.opportunity_name %></p>
+	<% end %>
+
+	<% if !(@fund.opportunity_acronym.blank?) %>
+		<strong>Acronym de Oportunidade:</strong> <p><%= @fund.opportunity_acronym%></p>
+	<% end %>
+
+	<% if !(@fund.opportunity_hyperlink.blank?) %>
+		<strong>Oportunidade Hyperlink: </strong> <p><%= @fund.opportunity_hyperlink %></p>
+	<% end %>
+
+	<% if !(@fund.eligibility.blank?) %>
+		<strong>Eligibilidade:</strong> <p><%= @fund.eligibility %></p>
+	<% end %>
+
+	<% if !(@fund.research_category.blank?) %>
+		<strong>Categorias Pesquisa:</strong> <p><%= @fund.research_category %></p>
+	<% end %>
+
+	<% if !(@fund.application_language.blank?) %>
+		<strong>Linguagem de Aplicação:</strong> <p><%= @fund.application_language %></p>
+	<% end %>
+
+	<% if !(@fund.past_participants.blank?) %>
+		<strong>Participantes Anteriores:</strong> <p><%= @fund.past_participants %></p>
+	<% end %>
+
+<!-- Organization -->
+
+<hr>
+
+<h2>Organização</h2>
+
+	<% if !(@fund.organization.blank?) %>
+		<strong>Organização Nome:</strong> <p><%= @fund.organization %></p>  <br>
+	<% end %>
+
+	<% if !(@fund.organization_acronym.blank?) %>
+		<strong>Organização Acronym:</strong> <p><%= @fund.organization_acronym %></p>  <br>
+	<% end %>
+
+	<% if !(@fund.organization_hyperlink.blank?) %>
+		<strong>Organização Hyperlink:</strong> <p><%= @fund.organization_hyperlink %></p>  <br>
+	<% end %>
+ 
+
+
+	<% if (@fund.organization.blank?) && (@fund.organization_acronym.blank?) && (@fund.organization_hyperlink.blank?) %>
+		<strong>Sem Informação</strong>
+	<% end %>
+
+<!-- Dates -->
+
+<hr>
+
+<h2>Datas</h2>
+
+	<% if !(@discovery_date.blank?) %>
+		<strong>Data da Descoberta</strong> <p><%= @fund.discovery_date %></p> <br>
+	<% else %>
+		<strong>Data da Descoberta Desconhecido</strong><br>
+	<% end %>
+
+	<% if !(@opening_date.blank?) %>
+		<strong>Data de Abertura</strong> <p><%= @fund.opening_date %></p>  <br>
+	<% else %>
+		<strong>Data de Abertura Desconhecido</strong><br>
+	<% end %>
+
+	<% if !(@closing_date.blank?) %>
+		<strong>Data de Fechamento</strong> <p><%= @fund.closing_date %></p>  <br>
+	<% else %>
+		<strong>Data de Fechamento Desconhecido</strong><br>
+	<% end %>
+
+
+<!-- Money Matters -->
+
+<hr>
+
+<h2>Finanças</h2>
+
+	<% if !(@base_currency.blank?) %>
+	<strong>Moeda Base</strong> <p><%= @fund.base_currency %></p>  <br>
+	<% else %>
+		<strong>Moeda Base Desconhecido</strong><br><br>
+	<% end %>
+
+	<strong>Financiamento mínimo em Moeda base</strong>
+	<p><%= number_with_precision(@fund.min_funding, precision: 0) %></p> 
+
+	<strong>Financiamento máximo em Moeda base</strong><br>
+	<p><%= number_with_precision(@fund.max_funding, precision: 0) %></p> 
+
+	<strong>Financiamento mínimo (equivalente R$)</strong><br>
+	<p><%= number_with_precision(@fund.min_funding_R, precision: 0) %></p> 
+
+	<strong>Financiamento máximo (equivalente R$)</strong><br>
+	<p><%= number_with_precision(@fund.max_funding_R, precision: 0) %></p> 
+
+<!-- Current Status Items -->
+
+<hr>
+
+<h2>Situação Atual</h2>
+
+	<% if !(@fund.project_name.blank?) %>
+		<strong>Nome do Projeto</strong> <p><%= @fund.project_name %></p> <br>
+	<% end %>
+
+	<% if !(@fund.project_status.blank?) %>
+		<strong>Status do Projeto</strong> <p><%= @fund.project_status %></p>  <br>
+	<% end %>
+
+	<% if !(@fund.team_members.blank?) %>
+		<strong>Membros da Time</strong> <p><%= @fund.team_members %></p>  <br>
+	<% end %>
+
+	<% if !(@fund.team_leader.blank?) %>
+		<strong>Lider do Time</strong> <p><%= @fund.team_leader %> </p> <br>
+	<% end %>
+
+	<% if !(@fund.requested_E.blank?) %>
+		<strong>Euros solicitado</strong> <p><%= number_with_precision(@fund.requested_E, precision: 0) %></p> <br>
+	<% end %>
+
+	<% if !(@fund.requested_D.blank?) %>
+		<strong>Dollars solicitado</strong> <p><%= number_with_precision(@fund.requested_D, precision: 0) %></p> <br>
+	<% end %>
+
+	<% if !(@fund.requested_R.blank?) %>
+		<strong>Reais solicitado</strong> <p><%= number_with_precision(@fund.requested_R, precision: 0) %></p> <br>
+	<% end %>
+
+	<% if !(@fund.requested_R_equiv.blank?) %>
+		<strong>Reais equivalente solicitado</strong> <p><%= number_with_precision(@fund.requested_R_equiv, precision: 0) %></p> <br>
+	<% end %>
+
+	<% if !(@fund.granted_R_equiv.blank?) %>
+		<strong>Reaais equivalente concedido</strong> <p><%= number_with_precision(@fund.granted_R_equiv, precision: 0) %></p> <br>
+	<% end %>
+
+	<% if !(@fund.year_applied.blank?) %>
+		<strong>Ano aplicada</strong> <p><%= @fund.year_applied %></p> <br>
+	<% end %>
+
+	<% if !(@fund.month_applied.blank?) %>
+		<strong>Mês aplicada</strong> <p><%= @fund.month_applied %></p> <br>
+	<% end %>
+
+	<% if !(@fund.day_applied.blank?) %>
+		<strong>Dia aplicada</strong> <p><%= @fund.day_applied %></p> <br>
+	<% end %>
+
+
+
+
+<!-- Attempts & their Booleans (optional section) -->
+	
+	<% if @fund.analysed? %>
+		<p>Analisada</p>
+	<% end %>
+
+	<% if @fund.potential? %>
+		<p>Potencial</p>
+	<% end %>
+
+	<% if @fund.passed_on? %>
+		<p>Encaminhada</p>
+	<% end %>
+
+	<% if @fund.tried? %>
+		<p>Tentada</p>
+	<% end %>
+
+<!-- Active Research Groups -->
+
+<hr>
+
+<h2>Atuais Grupos de Pesquisa</h2>
+
+	<% if @fund.idsm? %>
+		<b>IDSM</b><br>
+	<% end %>
+
+	<% if @fund.nits? %>
+		<b>NITS</b><br>
+	<% end %>
+
+	<% if @fund.ascom? %>
+		<b>AsCom</b><br>
+	<% end %>
+
+	<% if @fund.pqv? %>
+		<b>PQV</b><br>
+	<% end %>
+
+	<% if @fund.gpidats? %>
+		<b>GPIDATS</b><br>
+	<% end %>
+
+	<% if @fund.marina_bueno? %>
+		<b>Marina Bueno</b><br>
+	<% end %>
+
+	<% if @fund.ecovert? %>
+		<b>Ecovert</b><br>
+	<% end %>
+
+	<% if @fund.oncas? %>
+		<b>Onças</b><br>
+	<% end %>
+
+	<% if @fund.peixes? %>
+		<b>Peixes</b><br>
+	<% end %>
+
+	<% if @fund.pm_pesca? %>
+		<b>PM Pesca</b><br>
+	<% end %>
+
+	<% if @fund.pm_agroecossistemas? %>
+		<b>PM Agroecossistemas</b><br>
+	<% end %>
+
+	<% if @fund.ecologia_florestal? %>
+		<b>Ecologia Florestal</b><br>
+	<% end %>
+
+	<% if @fund.quelonios? %>
+		<b>Quelônios</b><br>
+	<% end %>
+
+	<% if @fund.jacares? %>
+		<b>Jacarés</b><br>
+	<% end %>
+
+	<% if @fund.mamaq? %>
+		<b>MAMAQ</b><br>
+	<% end %>
+
+	<% if @fund.turismo? %>
+		<b>Turismo</b><br>
+	<% end %>
+
+	<% if @fund.gp_ana_cladeise? %>
+		<b>GP Ana Claudeise</b><br>
+	<% end %>
+
+	<% if @fund.gp_territorialidades? %>
+		<b>GP Territorialidades, Identidades e Gestão Ambiental de Áreas Protegidas</b><br>
+	<% end %>
+
+<br>
+<br>
+
+<button class='btn-lg btn-primary' style='margin-bottom: 50px'><%= link_to 'Editar', edit_fund_path(@fund) %></button>
+<button class='btn-lg btn-primary' style='margin-bottom: 50px'><%= link_to 'Voltar', funds_path%></button>
+</div>

@@ -1,0 +1,229 @@
+<div class='container'>
+	<center>
+		<h1>Lista de Oportunidades de Financiamento</h1>
+	</center>
+</div>
+
+<hr>
+
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-4'>
+			<button class='btn-primary btn-lg'><%= link_to 'Adicionar uma Nova Oportunidade', new_fund_path %></button>
+		</div>
+		<div class='col-md-4'>
+			<button class='btn-primary btn-lg'><%= link_to 'Mostrar Todas as Oportunidades', funds_path %></button>
+		</div>
+		<div class='col-md-4'>
+			<button class='btn-primary btn-lg'><%= link_to 'Voltar', welcome_index_path %></button>
+		</div>
+	</div>
+				
+</div>
+
+<hr>
+<center>
+	<h2>Buscar Oportunidades</h2>
+</center>
+
+<br>
+<br>
+
+
+
+<div class='container'>
+
+		<%= search_form_for @q do |f| %>
+<div class='row'>
+	<div class='col-md-6'>
+
+		<p>
+			<%= f.label 'Nome de Oportunidade:' %>
+		</p><%= f.search_field :opportunity_name_cont %>
+		
+
+		<br>
+		<br>
+
+		<p>
+			<%= f.label 'Nome de Organização:' %>
+		</p>
+			<%= f.search_field :organization_cont %>
+		
+		
+
+		<br>
+		<br>
+
+		<p>
+			<%= f.label :min_funding_R, 'Financiamento mínimo (equivalente em $R):' %>
+		</p>
+			<%= f.number_field(:min_funding_R_gteq, step: 1000, precision: 0) %>
+		
+		
+
+		<br>
+		<br>
+
+		<p>
+			<%= f.label :max_funding_R, 'Financiamento máximo (equivalente em $R):' %>
+		</p>
+			<%= f.number_field(:max_funding_R_lteq, step: 1000, precision: 0) %>
+		
+		
+
+		<br>
+		<br>
+
+
+		<p>
+			<%= f.label 'Data de Abertura:' %>
+		</p>
+			<%= f.date_select :opening_date_lteq, {:include_blank => true, :default => nil} %>
+		
+		
+
+		<br>
+		<br>	
+
+		<p>
+			<%= f.label 'Data de Fechamento:' %>
+		</p>
+			<%= f.date_select :closing_date_lteq, {:include_blank => true, :default => nil} %>
+		
+		
+
+		<br>
+		<br>
+
+		
+	</div>
+	<div class='col-md-6'>
+		<b style='color: white'>Linguagem de Aplicação:</b>
+
+		<br>
+
+		<p>
+			<%= f.radio_button :application_language_cont, 'Português' %> 
+			<%= f.label :application_language_portugues, 'Português' %> &nbsp;
+
+			<%= f.radio_button :application_language_cont, 'Inglês ' %> 
+			<%= f.label :application_language_ingles, 'Inglês' %> &nbsp;
+
+			<%= f.radio_button :application_language_cont, 'Espanhol' %> 
+			<%= f.label :application_language_espanhol, 'Espanhol' %> &nbsp;
+
+			<%= f.radio_button :application_language_cont, 'Outra língua' %> 
+			<%= f.label :application_language_outra, 'Outra língua' %> &nbsp;
+
+			<%= f.radio_button :application_language_cont, '' %>
+			<%= f.label :application_language_any, 'Qualquer Linguagem' %>
+		</p>
+
+		<b>Atuais Grupos de Pesquisa:</b><br>
+
+		<%= f.check_box(:idsm_true, include_hidden: false) %>
+		<b>IDSM</b><br>
+
+		<%= f.check_box(:nits_true, include_hidden: false) %>
+		<b>NITS</b><br>
+
+		<%= f.check_box(:ascom_true, include_hidden: false) %>
+		<b>AsCom</b><br>
+
+		<%= f.check_box(:pqv_true, include_hidden: false) %>
+		<b>PQV</b><br>
+
+		<%= f.check_box(:gpidats_true, include_hidden: false) %>
+		<b>GPIDATS</b><br>
+
+		<%= f.check_box(:marina_bueno_true, include_hidden: false) %>
+		<b>Marina Bueno</b><br>
+
+		<%= f.check_box(:ecovert_true, include_hidden: false) %>
+		<b>Ecovert</b><br>
+
+		<%= f.check_box(:oncas_true, include_hidden: false) %>
+		<b>Onças</b><br>
+
+		<%= f.check_box(:peixes_true, include_hidden: false) %>
+		<b>Peixes</b><br>
+
+		<%= f.check_box(:pm_pesca_true, include_hidden: false) %>
+		<b>PM Pesca</b><br>
+
+		<%= f.check_box(:pm_agroecossistemas_true, include_hidden: false) %>
+		<b>PM Agroecossistemas</b><br>
+
+		<%= f.check_box(:ecologia_florestal_true, include_hidden: false) %>
+		<b>Ecologia Florestal</b><br>
+
+		<%= f.check_box(:quelonios_true, include_hidden: false) %>
+		<b>Quelônios</b><br>
+
+		<%= f.check_box(:jacares_true, include_hidden: false) %>
+		<b>Jacarés</b><br>
+
+		<%= f.check_box(:mamaq_true, include_hidden: false) %>
+		<b>MAMAQ</b><br>
+
+		<%= f.check_box(:turismo_true, include_hidden: false) %>
+		<b>Turismo</b><br>
+
+		<%= f.check_box(:gp_ana_cladeise_true, include_hidden: false) %>
+		<b>GP Ana Claudeise</b><br>
+
+		<%= f.check_box(:gp_territorialidades_true, include_hidden: false) %>
+		<b>GP Territorialidades, Identidades e Gestão Ambiental de Áreas Protegidas</b><br>
+	</div>
+</div>
+</div>
+
+
+
+<div class='row'>
+	<center>
+		<br>
+		<%= f.submit 'Buscar', :class => 'btn-danger btn-lg'%>
+		<% end %>
+	</center>
+</div>
+	
+
+<hr>
+
+<div class='container'>
+	<% @funds.each do |fund| %>
+
+		<div class='row'>
+			<div class='col-md-6'>
+				<strong>Opportunidade: </strong> <p><%= fund.opportunity_name %></p>
+				<strong>Organização:</strong> <p><%= fund.organization %></p>
+				<strong>Hyperlink:</strong> <p><%= fund.opportunity_hyperlink %></p>
+				<strong>Tipo de Financiamento:</strong> <p><%= fund.fund_type %></p>
+				<strong>Mínimo Financiamento (R$):</strong> <p><%= number_with_precision(fund.min_funding_R, precision: 0) %></p>
+				<strong>Máximo Financiamento (R$):</strong> <p><%= number_with_precision(fund.max_funding_R, precision: 0) %></p>
+			</div>
+			<div class='col-md-6'>
+				<strong>Data de Abertura:</strong> <p><%= fund.opening_date %></p>
+				<strong>Data de Fechamento:</strong> <p><%= fund.closing_date %></p>
+				<strong>Oportunidade Categorias:</strong> <p><%= fund.research_category %></p>
+				<strong>Elegibilidade:</strong> <p><%= fund.eligibility %></p>
+				<strong>Linguagem de Aplicação:</strong> <p><%= fund.application_language %></p>
+			</div>
+		</div>
+
+		<div class='row'>
+			<center>
+				<button class='btn-lg btn-primary'><%= link_to 'Mostrar', fund_path(fund) %></button>
+				<button class='btn-lg btn-primary'><%= link_to 'Editar', edit_fund_path(fund) %></button>
+				<button class='btn-lg'><%= link_to 'Excluir', fund_path(fund), method: :delete, data: { confirm: 'Você tem certeza?'} %>     </button>
+			</center>
+		</div>
+		
+		<hr>
+
+	<% end %>
+</table>
+</div>
+

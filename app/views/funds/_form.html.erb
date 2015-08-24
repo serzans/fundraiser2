@@ -1,0 +1,283 @@
+<%= form_for @fund do |f| %>
+
+<h2>Informações gerais</h2>
+
+<!-- Opportunity -->
+
+	<div class='row'>
+		<div class='col-md-6'>
+			<b>Nome de Oportunidade:</b><br>
+			<%= f.text_field :opportunity_name %> <br><br>
+
+			<b>Acronym de Oportunidade:</b> <br>
+			<%= f.text_field :opportunity_acronym %> <br><br>
+
+			<b>Oportunidade Hyperlink:</b> <br>
+			<%= f.text_field :opportunity_hyperlink %> <br><br>
+
+			<b>Categorias da Oportunidade:</b> <br>
+			<%= f.text_field :research_category %> <br><br>
+		</div>
+		<div class='col-md-6'>
+			<b>Eligibilidade:</b> <br>
+			<%= f.text_field :eligibility %> <br><br>
+
+			<b>Participantes Anteriores:</b> <br>
+			<%= f.text_field :past_participants %> <br><br>
+
+			<br>
+
+			<b>Linguagem de Aplicação:</b> <br>
+
+			<p>
+			<%= f.radio_button(:application_language, 'Português') %>
+			<%= f.label(:application_language_portugues, 'Português')%> 
+
+			<%= f.radio_button(:application_language, 'Inglês') %>
+			<%= f.label(:application_language_ingles, 'Inglês')%> 
+
+			<%= f.radio_button(:application_language, 'Espanhol') %>
+			<%= f.label(:application_language_espanhol, 'Espanhol')%> 
+
+			<%= f.radio_button(:application_language, 'Outra língua') %>
+			<%= f.label(:application_language_outra, 'Outra língua')%> <br>
+			</p>
+
+
+			
+		</div>
+	</div>
+
+	
+
+	
+
+<!-- Organization -->
+
+<hr>
+
+<h2>Organização</h2>
+
+	<div class='row'>
+		<div class='col-md-4'>
+			<b>Organização Nome:</b> <br>
+			<%= f.text_field :organization %> <br>
+		</div>
+		<div class='col-md-4'>
+			<b>Organização Acronym:</b> <br>
+			<%= f.text_field :organization_acronym %> <br>
+		</div>
+		<div class='col-md-4'>
+			<b>Organização Hyperlink:</b> <br>
+			<%= f.text_field :organization_hyperlink %> <br>
+		</div>
+	</div>
+	
+
+	
+
+	
+
+<!-- Dates -->
+
+<hr>
+
+<h2>Datas</h2>
+
+	<div class='row'>
+		<div class='col-md-4'>
+			<b>Data da descoberta:</b> <br>
+			<%= f.date_select :discovery_date %>
+		</div>
+		<div class='col-md-4'>
+			<b>Data de Abertura:</b> <br>
+			<%= f.date_select :opening_date %>
+		</div>
+		<div class='col-md-4'>
+			<b>Data de Fechamento:</b> <br>
+			<%= f.date_select :closing_date, {:include_blank => true, :default => nil} %>
+		</div>
+	</div>
+
+	
+
+	
+
+	
+
+
+<!-- Money Matters -->
+
+<hr>
+
+<h2>Finanças</h2>
+
+	<b>Tipo de Financiamento:</b><br>
+	<%= f.text_field :fund_type %> <br><br>
+
+	<b>Moeda base:</b><br>
+	<%= f.text_field :base_currency %> <br><br>
+
+	<b>Financiamento mínimo em Moeda base:</b><br>
+	<%= f.number_field(:min_funding, step: 1000) %><br><br>
+
+	<b>Financiamento máximo em Moeda base:</b><br>
+	<%= f.number_field(:max_funding, step: 1000) %><br><br>
+
+	<b>Financiamento mínimo (equivalente em R$):</b><br>
+	<%= f.number_field(:min_funding_R, step: 1000) %><br><br>
+
+	<b>Financiamento máximo (equivalente em R$):</b><br>
+	<%= f.number_field(:max_funding_R, step: 1000) %><br><br>
+
+<!-- Current Status Items -->
+
+<hr>
+
+<h2>Situação Atual</h2>
+
+	<div class='row'>
+		<div class='col-md-6'>
+			<b>Nome do Projeto:</b><br>
+			<%= f.text_field :project_name %> <br><br>
+
+			<b>Status do Projeto:</b><br>
+			<%= f.text_field :project_status %> <br><br>
+
+			<b>Membros da Time:</b><br>
+			<%= f.text_field :team_members %> <br><br>
+
+			<b>Lider do Time:</b><br>
+			<%= f.text_field :team_leader %> <br> <br>
+
+			<b>Ano aplicada:</b><br>
+			<%= f.number_field(:year_applied, step: 1, in: 2010..2200) %><br><br>
+
+			<b>Mês aplicada:</b><br>
+			<%= f.number_field(:month_applied, step: 1, in: 1..12) %><br><br>
+
+			<b>Dia aplicada:</b><br>
+			<%= f.number_field(:day_applied, step: 1, in: 1..31) %><br><br>
+		</div>
+		<div class='col-md-6'>
+			<b>Euros solicitado:</b> <br>
+			<%= f.number_field(:requested_E, step: 1000) %><br><br>
+
+			<b>Dollars solicitado:</b> <br>
+			<%= f.number_field(:requested_D, step: 1000) %><br><br>
+
+			<b>Reais solicitado:</b> <br>
+			<%= f.number_field(:requested_R, step: 1000) %><br><br>
+
+			<b>Equivalente em R$ solicitado:</b> <br>
+			<%= f.number_field(:requested_R_equiv, step: 1000) %><br><br>
+
+			<b>Equivalente em R$ concedido:</b> <br>
+			<%= f.number_field(:granted_R_equiv, step: 1000) %><br><br>
+		</div>
+	</div>
+
+	
+
+	
+
+	
+
+
+
+
+<!-- Attempts & their Booleans (optional section) -->
+
+<hr>
+
+	<%= f.check_box(:analysed) %>
+	<b>Analisada</b><br>
+
+	<%= f.check_box(:potential) %>
+	<b>Potencial</b><br>
+
+	<%= f.check_box(:passed_on) %>
+	<b>Encaminhada</b><br>
+
+	<%= f.check_box(:tried) %>
+	<b>Tentada</b><br>
+
+<!-- Active Research Groups -->
+
+<hr>
+
+<h2>Atuais Grupos de Pesquisa</h2>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<%= f.check_box(:idsm) %>
+		<b>IDSM</b><br>
+
+		<%= f.check_box(:nits) %>
+		<b>NITS</b><br>
+
+		<%= f.check_box(:ascom) %>
+		<b>AsCom</b><br>
+
+		<%= f.check_box(:pqv) %>
+		<b>PQV</b><br>
+
+		<%= f.check_box(:gpidats) %>
+		<b>GPIDATS</b><br>
+
+		<%= f.check_box(:marina_bueno) %>
+		<b>Marina Bueno</b><br>
+
+		<%= f.check_box(:ecovert) %>
+		<b>Ecovert</b><br>
+
+		<%= f.check_box(:oncas) %>
+		<b>Onças</b><br>
+
+		<%= f.check_box(:peixes) %>
+		<b>Peixes</b><br>
+
+		
+	</div>
+	<div class='col-md-6'>
+		<%= f.check_box(:pm_pesca) %>
+		<b>PM Pesca</b><br>
+
+		<%= f.check_box(:pm_agroecossistemas) %>
+		<b>PM Agroecossistemas</b><br>
+
+		<%= f.check_box(:ecologia_florestal) %>
+		<b>Ecologia Florestal</b><br>
+
+		<%= f.check_box(:quelonios) %>
+		<b>Quelônios</b><br>
+
+		<%= f.check_box(:jacares) %>
+		<b>Jacarés</b><br>
+
+		<%= f.check_box(:mamaq) %>
+		<b>MAMAQ</b><br>
+
+		<%= f.check_box(:turismo) %>
+		<b>Turismo</b><br>
+
+		<%= f.check_box(:gp_ana_cladeise) %>
+		<b>GP Ana Claudeise</b><br>
+
+		<%= f.check_box(:gp_territorialidades) %>
+		<b>GP Territorialidades, Identidades e Gestão Ambiental de Áreas Protegidas</b><br>
+	</div>
+</div>
+
+
+	
+
+	<br>
+
+<p>
+	<%= f.submit "Salvar", :class => 'btn-danger btn-lg'%>	
+	<button class='btn-lg btn-primary'><%= link_to 'Voltar', funds_path %></button style='margin-bottom: 50px'>
+</p>
+
+
+<% end %>

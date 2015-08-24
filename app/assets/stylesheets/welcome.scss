@@ -1,0 +1,31 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background-color: #0F5938;
+}
+
+h1, h2, p, strong, th, td, b {
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: yellow;
+}
+
+.frontpage center {
+	margin-top: 100px;
+}
+
+strong {
+	font-size: 17px;
+	color: #808080;
+}
